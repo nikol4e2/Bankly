@@ -19,7 +19,7 @@ import java.util.List;
 public class Card {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cardId;
 
     @Column(nullable = false, unique = true)

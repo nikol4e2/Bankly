@@ -16,6 +16,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "bank_user")
 public class User {
 
 
@@ -40,7 +41,7 @@ public class User {
     private LocalDateTime updatedAt;
 
 
-    private List<String> roles;
+   // private List<String> roles;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "owner")
     private Card card;

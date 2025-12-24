@@ -20,7 +20,7 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String txId;
+    private Long txId;
 
     private Double amount;
     private Double txFee;
