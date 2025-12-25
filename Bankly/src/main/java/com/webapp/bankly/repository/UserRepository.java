@@ -3,9 +3,11 @@ package com.webapp.bankly.repository;
 import com.webapp.bankly.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 
 public interface UserRepository extends JpaRepository<User, String> {
 
-    User findByUsernameIgnoreCase(String username);
+    Optional<User> findByUsernameIgnoreCase(String username);
 
 }
