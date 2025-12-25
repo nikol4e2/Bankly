@@ -55,7 +55,7 @@ public class JwtService {
 
     public boolean isTokenValid(String token)
     {
-        return new Date().before(extractExrpiration(token));
+        return new Date().before(extractExpiration(token));
 
     }
 
