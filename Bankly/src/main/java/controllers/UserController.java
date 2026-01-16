@@ -1,0 +1,33 @@
+package controllers;
+
+
+import com.webapp.bankly.entity.User;
+import com.webapp.bankly.entity.dto.UserDto;
+import com.webapp.bankly.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/user")
+@RequiredArgsConstructor
+public class UserController {
+
+    private final UserService userService;
+
+
+    @GetMapping("/register")
+    public ResponseEntity<User> registerUser(@RequestBody UserDto userDto){
+        return ResponseEntity.ok(userService.registerUser(userDto));
+    }
+
+    public ResponseEntity<?> authenticateUser(@RequestBody UserDto userDto){
+        var authObject = userService.authenticateUser(userDto);
+        return  ResponseEntity.ok().header(HttpHeaders.AUTHORIZATION, (String) authObject.get("token")).body(authObject.get("user"));
+    }
+
+}
